@@ -16,6 +16,7 @@
 		1F9F0EC02AB5324D00FB3BBD /* number_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F0EBD2AB5324D00FB3BBD /* number_1.png */; };
 		1F9F0EC12AB5324D00FB3BBD /* number_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F0EBE2AB5324D00FB3BBD /* number_2.png */; };
 		1F9F0EC22AB5324D00FB3BBD /* number_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F9F0EBF2AB5324D00FB3BBD /* number_3.png */; };
+		1F9F0EC82AB53D0200FB3BBD /* ZoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F9F0EC72AB53D0200FB3BBD /* ZoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1F9F0EBD2AB5324D00FB3BBD /* number_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = number_1.png; path = "../../画像/number_1.png"; sourceTree = "<group>"; };
 		1F9F0EBE2AB5324D00FB3BBD /* number_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = number_2.png; path = "../../画像/number_2.png"; sourceTree = "<group>"; };
 		1F9F0EBF2AB5324D00FB3BBD /* number_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = number_3.png; path = "../../画像/number_3.png"; sourceTree = "<group>"; };
+		1F9F0EC72AB53D0200FB3BBD /* ZoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				1F9F0EA92AB52E4F00FB3BBD /* AppDelegate.swift */,
 				1F9F0EAB2AB52E4F00FB3BBD /* SceneDelegate.swift */,
 				1F9F0EAD2AB52E4F00FB3BBD /* ViewController.swift */,
+				1F9F0EC72AB53D0200FB3BBD /* ZoomViewController.swift */,
 				1F9F0EAF2AB52E4F00FB3BBD /* Main.storyboard */,
 				1F9F0EB22AB52E5100FB3BBD /* Assets.xcassets */,
 				1F9F0EB42AB52E5100FB3BBD /* LaunchScreen.storyboard */,
@@ -153,6 +156,7 @@
 				1F9F0EAE2AB52E4F00FB3BBD /* ViewController.swift in Sources */,
 				1F9F0EAA2AB52E4F00FB3BBD /* AppDelegate.swift in Sources */,
 				1F9F0EAC2AB52E4F00FB3BBD /* SceneDelegate.swift in Sources */,
+				1F9F0EC82AB53D0200FB3BBD /* ZoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

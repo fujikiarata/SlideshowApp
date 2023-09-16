@@ -52,9 +52,17 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
+        zoomViewController.imageNo = dispImageNo
+    }
+    
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        // Dispose of any resources that can be recreated.
+//    }
+    
+    @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }
 }
 
