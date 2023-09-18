@@ -11,6 +11,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    
     /// 表示している画像の番号
     var dispImageNo = 0
     
@@ -75,6 +78,9 @@ class ViewController: UIViewController {
         if (timer == nil) {
             // タイマーをセットする
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+
+            prevButton.isEnabled = false
+            nextButton.isEnabled = false
             // ボタンの名前を停止に変える
             startButton.setTitle("停止", for: .normal)
         } else {
@@ -82,6 +88,8 @@ class ViewController: UIViewController {
             timer.invalidate()
             // タイマーを削除しておく(timer.invalidateだけだとtimerがnilにならないため)
             timer = nil
+            prevButton.isEnabled = true
+            nextButton.isEnabled = true
             // ボタンの名前を再生に直しておく
             startButton.setTitle("再生", for: .normal)
         }

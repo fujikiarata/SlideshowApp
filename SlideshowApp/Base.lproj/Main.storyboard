@@ -67,6 +67,8 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="mVw-2L-Zyp" id="fwu-Vc-TC0"/>
+                        <outlet property="nextButton" destination="2r2-hN-zyr" id="EaF-Zm-TSs"/>
+                        <outlet property="prevButton" destination="GIe-pS-SUg" id="D4h-Ck-k4H"/>
                         <outlet property="startButton" destination="1dL-7M-pDt" id="uzg-dw-GJI"/>
                     </connections>
                 </viewController>
