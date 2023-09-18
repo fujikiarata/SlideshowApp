@@ -28,28 +28,34 @@ class ViewController: UIViewController {
     func displayImage() {
         // 表示している画像の番号から名前を取り出し
         let name = imageNameArray[dispImageNo]
-        
         // 画像を読み込み
         let image = UIImage(named: name)
-        
         // Image Viewに読み込んだ画像をセット
         imageView.image = image
     }
     
     @IBAction func onNext(_ sender: Any) {
-        dispImageNo += 1
-        if (dispImageNo == 3) {
-            dispImageNo = 0
+        // スライドショー実行時は動かない
+        if (timer == nil) {
+            dispImageNo += 1
+            if (dispImageNo == 3) {
+                dispImageNo = 0
+            }
+            displayImage()
         }
-        displayImage()
     }
+    
     @IBAction func onPrev(_ sender: Any) {
-        dispImageNo -= 1
-        if (dispImageNo == -1) {
-            dispImageNo = 2
+        // スライドショー実行時は動かない
+        if (timer == nil) {
+            dispImageNo -= 1
+            if (dispImageNo == -1) {
+                dispImageNo = 2
+            }
+            displayImage()
         }
-        displayImage()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -67,22 +73,15 @@ class ViewController: UIViewController {
     @IBAction func startTimer(_ sender: Any) {
         // 再生中か停止しているかを判定
         if (timer == nil) {
-            // 再生時の処理を実装
-            
             // タイマーをセットする
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
-            
+            timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
             // ボタンの名前を停止に変える
             startButton.setTitle("停止", for: .normal)
-            
         } else {
-            // 停止時の処理を実装
             // タイマーを停止する
             timer.invalidate()
-            
             // タイマーを削除しておく(timer.invalidateだけだとtimerがnilにならないため)
             timer = nil
-            
             // ボタンの名前を再生に直しておく
             startButton.setTitle("再生", for: .normal)
         }
@@ -104,20 +103,16 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
-    // 一時停止ボタン IBAction
-    @objc func pauseTimer(_ sender: Any) {
-        if self.timer != nil {
-            self.timer.invalidate()   // タイマーを停止する
-            self.timer = nil          // startTimer() の self.timer == nil で判断するために、 self.timer = nil としておく
-        }
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
         zoomViewController.imageNo = dispImageNo
     }
     
     @IBAction func tap(_ sender: Any) {
+        if self.timer != nil {
+            self.timer.invalidate()   // タイマーを停止する
+            self.timer = nil          // startTimer() の self.timer == nil で判断するために、 self.timer = nil としておく
+        }
         self.performSegue(withIdentifier: "toSecond", sender: self)
     }
     

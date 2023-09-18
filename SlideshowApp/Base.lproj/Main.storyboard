@@ -27,9 +27,9 @@
                                 </connections>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-hN-zyr">
-                                <rect key="frame" x="268" y="382" width="57" height="35"/>
+                                <rect key="frame" x="268" y="382" width="59" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="next"/>
+                                <buttonConfiguration key="configuration" style="plain" title="進む"/>
                                 <connections>
                                     <action selector="onNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D51-fX-SKD"/>
                                 </connections>
@@ -43,9 +43,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIe-pS-SUg">
-                                <rect key="frame" x="62" y="368" width="58" height="50"/>
+                                <rect key="frame" x="62" y="374" width="59" height="50"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="prev"/>
+                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
                                 <connections>
                                     <action selector="onPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zew-wo-oc1"/>
                                 </connections>
@@ -89,12 +89,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N56-b5-KCk">
-                                <rect key="frame" x="171" y="507" width="51" height="210"/>
+                                <rect key="frame" x="167" y="507" width="59" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="YlL-dF-NUf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="exit"/>
+                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
                                 <connections>
                                     <segue destination="Vdo-OR-DUY" kind="unwind" unwindAction="unwind:" id="rfK-WQ-PuG"/>
                                 </connections>
