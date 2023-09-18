@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         if (timer == nil) {
             // タイマーをセットする
             timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
-
+            
             prevButton.isEnabled = false
             nextButton.isEnabled = false
             // ボタンの名前を停止に変える
@@ -113,15 +113,15 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
-        zoomViewController.imageNo = dispImageNo
-    }
-    
-    @IBAction func tap(_ sender: Any) {
         if self.timer != nil {
             self.timer.invalidate()   // タイマーを停止する
             self.timer = nil          // startTimer() の self.timer == nil で判断するために、 self.timer = nil としておく
+            // ボタンの名前を再生に直しておく
+            startButton.setTitle("再生", for: .normal)
+            prevButton.isEnabled = true
+            nextButton.isEnabled = true
         }
-        self.performSegue(withIdentifier: "toSecond", sender: self)
+        zoomViewController.imageNo = dispImageNo
     }
     
     override func didReceiveMemoryWarning() {
