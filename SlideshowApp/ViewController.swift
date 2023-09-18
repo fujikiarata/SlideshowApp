@@ -9,18 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var startButton: UIButton!
+    
     /// 表示している画像の番号
     var dispImageNo = 0
     
+    // タイマー
+    var timer: Timer!
+    var timer_sec: Float = 0
+    // 画像の名前の配列
+    let imageNameArray = [
+        "number_1",
+        "number_2",
+        "number_3",
+    ]
+    
     /// 表示している画像の番号を元に画像を表示する
     func displayImage() {
-        // 画像の名前の配列
-        let imageNameArray = [
-            "number_1",
-            "number_2",
-            "number_3",
-        ]
-        
         // 表示している画像の番号から名前を取り出し
         let name = imageNameArray[dispImageNo]
         
@@ -52,15 +57,74 @@ class ViewController: UIViewController {
         imageView.image = image
     }
     
+    // selector: #selector(updatetimer(_:)) で指定された関数
+    // timeInterval: 0.1, repeats: true で指定された通り、0.1秒毎に呼び出され続ける
+    @objc func updateTimer(_ timer: Timer) {
+        self.timer_sec += 0.1
+    }
+    
+    // 再生ボタン IBAction
+    @IBAction func startTimer(_ sender: Any) {
+        // 再生中か停止しているかを判定
+        if (timer == nil) {
+            // 再生時の処理を実装
+            
+            // タイマーをセットする
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(changeImage), userInfo: nil, repeats: true)
+            
+            // ボタンの名前を停止に変える
+            startButton.setTitle("停止", for: .normal)
+            
+        } else {
+            // 停止時の処理を実装
+            // タイマーを停止する
+            timer.invalidate()
+            
+            // タイマーを削除しておく(timer.invalidateだけだとtimerがnilにならないため)
+            timer = nil
+            
+            // ボタンの名前を再生に直しておく
+            startButton.setTitle("再生", for: .normal)
+        }
+    }
+    
+    @objc func changeImage() {
+        // indexを増やして表示する画像を切り替える
+        dispImageNo += 1
+        
+        // indexが表示予定の画像の数と同じ場合
+        if (dispImageNo == imageNameArray.count) {
+            // indexを一番最初の数字に戻す
+            dispImageNo = 0
+        }
+        // indexの画像をstoryboardの画像にセットする
+        let name = imageNameArray[dispImageNo]
+        // 画像を読み込み
+        let image = UIImage(named: name)
+        imageView.image = image
+    }
+    
+    // 一時停止ボタン IBAction
+    @objc func pauseTimer(_ sender: Any) {
+        if self.timer != nil {
+            self.timer.invalidate()   // タイマーを停止する
+            self.timer = nil          // startTimer() の self.timer == nil で判断するために、 self.timer = nil としておく
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let zoomViewController:ZoomViewController = segue.destination as! ZoomViewController
         zoomViewController.imageNo = dispImageNo
     }
     
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+    @IBAction func tap(_ sender: Any) {
+        self.performSegue(withIdentifier: "toSecond", sender: self)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {
     }

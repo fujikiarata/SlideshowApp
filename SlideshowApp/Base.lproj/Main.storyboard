@@ -16,34 +16,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-2L-Zyp">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mVw-2L-Zyp">
                                 <rect key="frame" x="76" y="159" width="241" height="103"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="103" id="QhI-Ev-Iwy"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Ica-m2-OgX" appends="YES" id="kfr-Vs-iNl"/>
+                                </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-hN-zyr">
-                                <rect key="frame" x="276" y="375" width="57" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2r2-hN-zyr">
+                                <rect key="frame" x="268" y="382" width="57" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="next"/>
                                 <connections>
                                     <action selector="onNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D51-fX-SKD"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dL-7M-pDt">
-                                <rect key="frame" x="159" y="368" width="75" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dL-7M-pDt">
+                                <rect key="frame" x="167.33333333333334" y="382" width="58.666666666666657" height="35"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="再生"/>
                                 <connections>
-                                    <segue destination="vFg-VX-s9G" kind="show" id="xTA-R5-lAT"/>
+                                    <action selector="startTimer:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qh9-e6-stb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIe-pS-SUg">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GIe-pS-SUg">
                                 <rect key="frame" x="62" y="368" width="58" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="prev"/>
                                 <connections>
@@ -53,12 +53,30 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mVw-2L-Zyp" firstAttribute="centerX" secondItem="1dL-7M-pDt" secondAttribute="centerX" id="9lE-Vz-0Oi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1dL-7M-pDt" secondAttribute="bottom" constant="401" id="FgL-J0-jIY"/>
+                            <constraint firstItem="2r2-hN-zyr" firstAttribute="leading" secondItem="1dL-7M-pDt" secondAttribute="trailing" constant="42" id="V90-rd-PHV"/>
+                            <constraint firstItem="mVw-2L-Zyp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="amz-si-KlT"/>
+                            <constraint firstItem="mVw-2L-Zyp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j5r-kQ-zwp"/>
+                            <constraint firstItem="1dL-7M-pDt" firstAttribute="leading" secondItem="GIe-pS-SUg" secondAttribute="trailing" constant="39" id="np1-9s-Tyk"/>
+                            <constraint firstItem="1dL-7M-pDt" firstAttribute="top" secondItem="GIe-pS-SUg" secondAttribute="top" id="tB9-hQ-rub"/>
+                            <constraint firstItem="1dL-7M-pDt" firstAttribute="baseline" secondItem="2r2-hN-zyr" secondAttribute="baseline" id="tRY-JY-anE"/>
+                            <constraint firstItem="mVw-2L-Zyp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="zU9-e8-dHH"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="mVw-2L-Zyp" id="fwu-Vc-TC0"/>
+                        <outlet property="startButton" destination="1dL-7M-pDt" id="uzg-dw-GJI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ica-m2-OgX">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="46V-I9-8a7"/>
+                        <segue destination="vFg-VX-s9G" kind="show" id="39H-Ku-pdI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.64122137404578" y="4.9295774647887329"/>
         </scene>
@@ -96,6 +114,7 @@
                             <constraint firstItem="1pz-yq-yVW" firstAttribute="leading" secondItem="iTd-7z-Rc2" secondAttribute="leading" constant="42" id="tww-1P-sCG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="GSI-3r-avr"/>
                     <connections>
                         <outlet property="zoomImageView" destination="1pz-yq-yVW" id="CMs-aQ-rcX"/>
                     </connections>
